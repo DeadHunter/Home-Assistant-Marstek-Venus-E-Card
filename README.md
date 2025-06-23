@@ -25,3 +25,6 @@ name: Marstek Venus E 5kWh
 - `user_work_mode` und `inverter_status` müssen den Numerischen Zustand enthalten.
 - Alle `entities` werden benötigt.
 - `name` ist optional
+
+## Development Notes
+Sass kompilieren: `sass -w --no-source-map style.scss style.css`
