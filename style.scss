@@ -1,0 +1,148 @@
+marstek-venus-e {
+    display: block;
+    color: #fff;
+    border: 2px solid #999;
+    border-radius: 2em;
+    background: #4a4a4a;
+    background: linear-gradient(100deg, rgba(74, 74, 74, 1) 0%, rgba(55, 55, 55, 1) 15%, rgba(38, 38, 38, 1) 15%, rgba(10, 10, 10, 1) 100%);
+
+    .head {
+        padding: 2em;
+        border-bottom: 2px solid #999;
+        margin-bottom: 4em;
+
+        .power-bar {
+            width: 80%;
+            border: 1px solid #999;
+            border-radius: 1em;
+            padding: 2px;
+            margin: 2em auto;
+            position: relative;
+
+            .bar {
+                height: 4px;
+                box-shadow: 0 0 9px 2px #fff;
+                border-radius: 1em;
+                background: #fff;
+                position: relative;
+
+                &::after {
+                    display: block;
+                    content: "";
+                    border-radius: 100%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    .body {
+        padding: 2em;
+        font-size: 1.4em;
+
+        .row {
+            margin-bottom: 1em;
+        }
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .name {
+        text-align: center;
+        margin-top: 2em;
+    }
+
+    &[state="charge"] {
+        .power-bar {
+            .bar {
+                animation: marstek-charging ease-in-out 3s infinite;
+                background: #4aff03;
+
+                &::after {
+                    background: #6cff25;
+                    box-shadow: 0 0 9px 2px #6cff25;
+                    animation: marstek-energy cubic-bezier(0.38, 0.6, 0.53, 1.03) 1500ms infinite;
+                }
+            }
+        }
+    }
+
+    &[state="discharge"] {
+        .power-bar {
+            .bar {
+                animation: marstek-discharging ease-in-out 3s infinite;
+                background: #ff4a03;
+
+                &::after {
+                    background: #ff6c25;
+                    box-shadow: 0 0 9px 2px #ff6c25;
+                    animation: marstek-energy ease-in-out 1500ms infinite reverse;
+                }
+            }
+        }
+    }
+}
+
+@keyframes marstek-charging {
+    0% {
+        box-shadow: 0 0 9px 2px #4aff03;
+    }
+
+    50% {
+        box-shadow: 0 0 9px 0px #4aff03;
+    }
+
+    100% {
+        box-shadow: 0 0 9px 2px #4aff03;
+    }
+}
+
+@keyframes marstek-discharging {
+    0% {
+        box-shadow: 0 0 9px 2px #ff4a03;
+    }
+
+    50% {
+        box-shadow: 0 0 9px 0px #ff4a03;
+    }
+
+    100% {
+        box-shadow: 0 0 9px 2px #ff4a03;
+    }
+}
+
+@keyframes marstek-energy {
+    0% {
+        opacity: 0;
+        left: 0;
+        right: 90%;
+    }
+
+    20% {
+        opacity: 1;
+        left: 0;
+    }
+
+    80% {
+        opacity: 1;
+        right: 0;
+    }
+
+    100% {
+        opacity: 0;
+        left: 90%;
+        right: 0;
+    }
+}
