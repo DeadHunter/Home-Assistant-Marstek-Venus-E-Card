@@ -1,0 +1,27 @@
+{
+  "name": "home-assistant-marstek-venus-e-card",
+  "version": "1.0.0",
+  "source": "src/index.ts",
+  "module": "dist/card.js",
+  "targets": {
+    "module": {
+      "includeNodeModules": true
+    }
+  },
+  "scripts": {
+    "build": "rm -r dist/*; parcel build",
+    "watch": "parcel watch"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.15.4",
+    "@parcel/transformer-sass": "2.15.4",
+    "parcel": "^2.15.4",
+    "sass": "^1.89.2",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "custom-card-helpers": "^1.9.0",
+    "lit": "^3.3.0"
+  }
+}

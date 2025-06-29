@@ -1,7 +1,8 @@
 {
     "name": "Marstek Venus E Card",
     "render_readme": true,
-    "filename": "marstek-venus-e-card.js",
+    "filename": "dist/card.js",
+    "content_in_root": false,
     "country": [
         "DE"
     ]

@@ -27,4 +27,4 @@ name: Marstek Venus E 5kWh
 - `name` ist optional
 
 ## Development Notes
-Sass kompilieren: `sass -w --no-source-map style.scss style.css`
+Compile with `yarn build`.
